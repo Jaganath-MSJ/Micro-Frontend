@@ -1,5 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart, type CartState } from "../store/cartSlice";
+import { useInjectReducers } from "../hooks/useInjectReducers";
+import cartSlice from "../store/cartSlice";
 
 interface RootState {
   user?: { count: number };
@@ -31,4 +33,18 @@ function CartContent() {
   );
 };
 
-export default CartContent;
+function CartContentWrapper() {
+  const { isReady } = useInjectReducers({
+    name: "cart",
+    reducers: cartSlice,
+  });
+  console.count("Cart content" + isReady);
+  // if (!isReady) {
+  //   console.count("Cart content is not ready");
+  //   return null;
+  // }
+  console.count("Cart content is ready");
+  return <CartContent />;
+}
+
+export default CartContentWrapper;
