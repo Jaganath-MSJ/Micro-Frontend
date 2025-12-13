@@ -34,10 +34,7 @@ function CartContent() {
 };
 
 function CartContentWrapper() {
-  const { isReady } = useInjectReducers({
-    name: "cart",
-    reducers: cartSlice,
-  });
+  const { isReady } = useInjectReducers(cartSlice);
   console.count("Cart content" + isReady);
   // if (!isReady) {
   //   console.count("Cart content is not ready");

@@ -24,10 +24,10 @@ export type AppStore = typeof store & {
 };
 
 // Function to eject previously injected reducers
-(store as AppStore).ejectReducer = function ejectReducer(key: string) {
-  // combineSlices does not support ejecting reducers at runtime in the same way
-  // We'll log a warning as per the plan
-  console.warn(`Reducer '${key}' cannot be ejected when using combineSlices. This operation is a no-op.`);
-};
+// (store as AppStore).ejectReducer = function ejectReducer(key: string) {
+//   // combineSlices does not support ejecting reducers at runtime in the same way
+//   // We'll log a warning as per the plan
+//   console.warn(`Reducer '${key}' cannot be ejected when using combineSlices. This operation is a no-op.`);
+// };
 
 export default store;
