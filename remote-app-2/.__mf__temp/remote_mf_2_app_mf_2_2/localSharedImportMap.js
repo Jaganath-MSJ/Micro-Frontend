@@ -29,7 +29,7 @@
       
           "@reduxjs/toolkit": {
             name: "@reduxjs/toolkit",
-            version: "2.11.0",
+            version: "2.11.1",
             scope: ["default"],
             loaded: false,
             from: "remote-app-2",
@@ -59,7 +59,7 @@
         ,
           "react": {
             name: "react",
-            version: "19.2.0",
+            version: "19.2.3",
             scope: ["default"],
             loaded: false,
             from: "remote-app-2",
@@ -89,7 +89,7 @@
         ,
           "react-dom": {
             name: "react-dom",
-            version: "19.2.0",
+            version: "19.2.3",
             scope: ["default"],
             loaded: false,
             from: "remote-app-2",
