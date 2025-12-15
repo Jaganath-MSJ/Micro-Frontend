@@ -25,6 +25,12 @@ export default defineConfig({
           name: "remote-app-2",
           shareScope: "default",
         },
+        "shared-utils": {
+          type: "module",
+          entry: "http://localhost:5003/sharedEntry1.js",
+          name: "sharedUtils",
+          shareScope: "default",
+        },
       },
       shared: {
         react: { singleton: true, requiredVersion: dependencies.react },

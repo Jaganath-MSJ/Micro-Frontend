@@ -3,6 +3,11 @@ import { addToCart, type CartState } from "../store/cartSlice";
 import { useInjectReducers } from "../hooks/useInjectReducers";
 import cartSlice from "../store/cartSlice";
 
+// const useSharedUtilsUtils = async () => {
+//   const utils = await import("sharedUtils/utils");
+//   return utils;
+// };
+
 interface RootState {
   user: { count: number };
   cart: CartState;
@@ -13,7 +18,7 @@ function CartContent() {
   const { items, total } = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
 
-  const handleAddItem = () => {
+  const handleAddItem = async () => {
     dispatch(
       addToCart({
         id: new Date(Date.now()).toISOString(),
@@ -21,6 +26,8 @@ function CartContent() {
         price: Math.floor(Math.random() * 100),
       })
     );
+    // const data = await useSharedUtilsUtils().getUserMessage();
+    // console.log(data);
   };
 
   return (
