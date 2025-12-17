@@ -9,6 +9,7 @@ interface RootState {
 
 function Cart() {
   const count = useSelector((state: RootState) => state?.user?.count ?? 0);
+  // throw new Error("Intentional test error in Cart component");
   return (
     <>
       {/* <Activity mode={(count % 3) !== 0 ? 'visible' : 'hidden'}>
