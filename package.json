@@ -1,0 +1,13 @@
+{
+  "name": "micro-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "host-app": "cd host-app && npm run dev",
+    "remote-app-1": "cd remote-app-1 && npm run dev",
+    "remote-app-2": "cd remote-app-2 && npm run dev",
+    "shared-utils": "cd shared-utils && npm run dev",
+    "del-temp": "rmdir /s /q \"host-app/.__mf__temp\" & rmdir /s /q \"remote-app-1/.__mf__temp\" & rmdir /s /q \"remote-app-2/.__mf__temp\" & rmdir /s /q \"shared-utils/.__mf__temp\""
+  }
+}
