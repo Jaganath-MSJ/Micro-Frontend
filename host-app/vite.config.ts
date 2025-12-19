@@ -58,7 +58,4 @@ export default defineConfig({
   build: {
     target: "chrome89",
   },
-  optimizeDeps: {
-    force: true, // Force re-bundle all dependencies
-  },
 });
