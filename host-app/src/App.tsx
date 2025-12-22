@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import { AppRouter } from "./Router";
+import Navbar from "./components/Navbar";
 
 // Load shared utils
 const loadSharedUtils = import("shared-utils/utils");
@@ -112,6 +113,7 @@ function App() {
         transition: "all 0.3s ease",
       }}
     >
+      <Navbar />
       <h1>🏠 Host Application</h1>
       <p>
         Current Theme: <strong>{theme}</strong>
