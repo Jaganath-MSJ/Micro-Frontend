@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import { AppRouter } from "./Router";
-import { NavigationProvider } from "./navigation/NavigationProvider";
-import { importRemoteFunction } from "./utils/utils";
 
 // Load shared utils
 const loadSharedUtils = import("shared-utils/utils");
 
 // Load event bus
-// const loadEventBus = importRemoteFunction("shared-utils/eventBus");
 const loadEventBus = import("shared-utils/eventBus");
 
 function App() {
