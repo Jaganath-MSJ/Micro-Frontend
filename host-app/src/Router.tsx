@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Button from "./pages/remote-1/Button";
 import { RemoteComponentWrapper } from "./errorBoundary.exports";
 

@@ -1,3 +1,5 @@
+import { createContext } from "react";
+
 export interface NavigationEvent {
   path: string;
   replace?: boolean;
@@ -13,7 +15,4 @@ export interface NavigationMethods {
   currentPath: string;
 }
 
-export const NAVIGATION_EVENTS = {
-  NAVIGATE_REQUEST: "navigation:request",
-  NAVIGATE_COMPLETE: "navigation:complete",
-} as const;
+export const NavigationContext = createContext<NavigationMethods | null>(null);

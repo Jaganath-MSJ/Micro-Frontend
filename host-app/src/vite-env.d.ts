@@ -95,6 +95,8 @@ declare module "shared-utils/eventTypes" {
     "notification:show": NotificationShowEvent;
     "button:clicked": ButtonClickedEvent;
     "cart:item-added": CartItemAddedEvent;
+    // Navigation events
+    "navigation:request": NavigationEvent;
   };
 }
 

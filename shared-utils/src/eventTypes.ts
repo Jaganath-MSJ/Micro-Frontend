@@ -135,6 +135,9 @@ export type EventBusEvents = {
 
   // Button events
   "button:clicked": ButtonClickedEvent;
+
+  // Navigation events
+  "navigation:request": NavigationEvent;
 };
 
 /**

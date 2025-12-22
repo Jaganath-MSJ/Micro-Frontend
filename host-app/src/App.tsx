@@ -13,6 +13,10 @@ function App() {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [notifications, setNotifications] = useState<string[]>([]);
 
+  const addNotification = (message: string) => {
+    setNotifications((prev) => [...prev.slice(-4), message]);
+  };
+
   // Setup event listeners
   useEffect(() => {
     let unsubscribeLogout: (() => void) | undefined;
@@ -63,10 +67,6 @@ function App() {
       unsubscribeCart?.();
     };
   }, []);
-
-  const addNotification = (message: string) => {
-    setNotifications((prev) => [...prev.slice(-4), message]);
-  };
 
   const onCheckUtils = async () => {
     const data = (await loadSharedUtils).getUserMessage();
