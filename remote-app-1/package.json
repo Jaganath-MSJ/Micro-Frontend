@@ -8,7 +8,7 @@
     "build": "npm run del-temp & rsbuild build",
     "lint": "eslint .",
     "preview": "rsbuild preview",
-    "del-temp": "rmdir /s /q \"dist\" & rmdir /s /q \"node_modules/.federation\""
+    "del-temp": "rmdir /s /q \"dist\""
   },
   "dependencies": {
     "@module-federation/enhanced": "^0.22.0",
@@ -26,6 +26,7 @@
     "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
     "jsdom": "^27.3.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4"
