@@ -27,35 +27,50 @@ function App() {
 
     loadEventBus.then(({ eventBus }) => {
       // Listen to user logout events
-      unsubscribeLogout = eventBus.on("user:logout", (payload) => {
-        console.log("🚪 User logged out:", payload);
-        addNotification(`User ${payload.userId} logged out`);
-      });
+      unsubscribeLogout = eventBus.on(
+        "user:logout",
+        (payload: { userId: string }) => {
+          console.log("🚪 User logged out:", payload);
+          addNotification(`User ${payload.userId} logged out`);
+        }
+      );
 
       // Listen to theme change events
-      unsubscribeTheme = eventBus.on("theme:changed", (payload) => {
-        console.log("🎨 Theme changed:", payload);
-        setTheme(payload.theme);
-        addNotification(`Theme changed to ${payload.theme}`);
-      });
+      unsubscribeTheme = eventBus.on(
+        "theme:changed",
+        (payload: { theme: "light" | "dark" }) => {
+          console.log("🎨 Theme changed:", payload);
+          setTheme(payload.theme);
+          addNotification(`Theme changed to ${payload.theme}`);
+        }
+      );
 
       // Listen to notification events
-      unsubscribeNotification = eventBus.on("notification:show", (payload) => {
-        console.log("🔔 Notification:", payload);
-        addNotification(payload.message);
-      });
+      unsubscribeNotification = eventBus.on(
+        "notification:show",
+        (payload: { message: string }) => {
+          console.log("🔔 Notification:", payload);
+          addNotification(payload.message);
+        }
+      );
 
       // Listen to button click events from remote
-      unsubscribeButton = eventBus.on("button:clicked", (payload) => {
-        console.log("🔘 Button clicked:", payload);
-        addNotification(`Button "${payload.label}" clicked`);
-      });
+      unsubscribeButton = eventBus.on(
+        "button:clicked",
+        (payload: { label: string }) => {
+          console.log("🔘 Button clicked:", payload);
+          addNotification(`Button "${payload.label}" clicked`);
+        }
+      );
 
       // Listen to cart events
-      unsubscribeCart = eventBus.on("cart:item-added", (payload) => {
-        console.log("🛒 Cart item added:", payload);
-        addNotification(`Added ${payload.itemName} to cart`);
-      });
+      unsubscribeCart = eventBus.on(
+        "cart:item-added",
+        (payload: { itemName: string }) => {
+          console.log("🛒 Cart item added:", payload);
+          addNotification(`Added ${payload.itemName} to cart`);
+        }
+      );
     });
 
     // Cleanup on unmount

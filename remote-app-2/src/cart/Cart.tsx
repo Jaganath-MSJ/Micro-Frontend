@@ -27,7 +27,7 @@ function Cart() {
     let unsubscribe: (() => void) | undefined;
 
     loadEventBus().then((eventBus) => {
-      unsubscribe = eventBus.on("user:logout", (payload) => {
+      unsubscribe = eventBus.on("user:logout", (payload: unknown) => {
         console.log("🚪 [Remote-2 Cart] User logged out:", payload);
         setIsLoggedOut(true);
 
