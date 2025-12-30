@@ -22,10 +22,13 @@ function Button({ label, onClick }: { label: string; onClick: () => void }) {
     let unsubscribe: (() => void) | undefined;
 
     loadEventBus().then((eventBus) => {
-      unsubscribe = eventBus.on("theme:changed", (payload) => {
-        console.log("🎨 [Remote-1 Button] Theme changed:", payload.theme);
-        setTheme(payload.theme);
-      });
+      unsubscribe = eventBus.on(
+        "theme:changed",
+        (payload: { theme: "light" | "dark" }) => {
+          console.log("🎨 [Remote-1 Button] Theme changed:", payload.theme);
+          setTheme(payload.theme);
+        }
+      );
     });
 
     return () => {
