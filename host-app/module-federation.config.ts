@@ -27,5 +27,6 @@ export default createModuleFederationConfig({
       requiredVersion: dependencies["@reduxjs/toolkit"],
     },
   },
-  implementation: require.resolve('@module-federation/runtime-tools'),
+  implementation: require.resolve("@module-federation/runtime-tools"),
+  dts: true,
 });
