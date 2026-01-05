@@ -48,6 +48,7 @@ export default defineConfig({
         },
       },
       hostInitInjectLocation: "html",
+      runtimePlugins: ["./src/plugins/federationLogger.ts"],
     }),
   ],
   server: {

@@ -141,10 +141,7 @@ class EventBus {
   /**
    * Get all registered event handlers (for debugging)
    */
-  getHandlers(): Map<
-    keyof EventBusEvents | "*",
-    Array<(payload?: unknown) => void>
-  > {
+  getHandlers(): Map<any, any> {
     return this.emitter.all;
   }
 }
