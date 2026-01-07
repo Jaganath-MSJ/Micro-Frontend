@@ -1,5 +1,5 @@
 import mitt from "mitt";
-import type { Emitter } from "mitt";
+import type { Emitter, EventHandlerMap } from "mitt";
 import type { EventBusEvents } from "./eventTypes";
 
 /**
@@ -141,7 +141,7 @@ class EventBus {
   /**
    * Get all registered event handlers (for debugging)
    */
-  getHandlers(): Map<any, any> {
+  getHandlers(): EventHandlerMap<EventBusEvents> {
     return this.emitter.all;
   }
 }

@@ -3,16 +3,16 @@ import Logger from "./logger";
 
 const logger = new Logger("HostApp-Runtime");
 
-const federationLogger: ModuleFederationRuntimePlugin = () => {
+function federationLogger(): ModuleFederationRuntimePlugin {
   return {
     name: "federation-logger-plugin",
-    beforeRequest(args: any) {
+    beforeRequest(args) {
       const remoteName = args.id;
       logger.info(`Requested module: ${remoteName}`);
       performance.mark(`start-load-${remoteName}`);
       return args;
     },
-    onLoad(args: any) {
+    onLoad(args) {
       const remoteName = args.id;
       performance.mark(`end-load-${remoteName}`);
 
@@ -31,12 +31,12 @@ const federationLogger: ModuleFederationRuntimePlugin = () => {
       });
       return args;
     },
-    errorLoadRemote(args: any) {
+    errorLoadRemote(args) {
       const remoteName = args.id;
       logger.error(`Failed to load module: ${remoteName}`, args.error);
       return args;
     },
   };
-};
+}
 
 export default federationLogger;
