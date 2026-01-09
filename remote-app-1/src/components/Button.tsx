@@ -2,12 +2,12 @@ import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 
 const loadSharedUtils = async () => {
-  const utils = await import("sharedUtils/utils");
+  const utils = await import("shared-utils/utils");
   return utils;
 };
 
 const loadEventBus = async () => {
-  const { eventBus } = await import("sharedUtils/eventBus");
+  const { eventBus } = await import("shared-utils/eventBus");
   return eventBus;
 };
 
@@ -22,13 +22,10 @@ function Button({ label, onClick }: { label: string; onClick: () => void }) {
     let unsubscribe: (() => void) | undefined;
 
     loadEventBus().then((eventBus) => {
-      unsubscribe = eventBus.on(
-        "theme:changed",
-        (payload: { theme: "light" | "dark" }) => {
-          console.log("🎨 [Remote-1 Button] Theme changed:", payload.theme);
-          setTheme(payload.theme);
-        }
-      );
+      unsubscribe = eventBus.on("theme:changed", (payload) => {
+        console.log("🎨 [Remote-1 Button] Theme changed:", payload.theme);
+        setTheme(payload.theme);
+      });
     });
 
     return () => {

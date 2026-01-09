@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 
-declare module "remoteApp1/Button" {
+declare module "remote-app-1/Button" {
   const Button: React.ComponentType<{
     label: string;
     onClick: () => void;
@@ -8,23 +8,22 @@ declare module "remoteApp1/Button" {
   export default Button;
 }
 
-declare module "remoteApp1/*" {
+declare module "remote-app-1/*" {
   const value: unknown;
   export default value;
 }
 
-declare module "remoteApp2/Cart" {
+declare module "remote-app-2/Cart" {
   const Cart: React.ComponentType;
   export default Cart;
 }
 
-declare module "sharedUtils/utils" {
-  const utils: unknown;
-  export default utils;
+declare module "shared-utils/utils" {
+  export function getUserMessage(user?: boolean): string;
 }
 
-declare module "sharedUtils/eventBus" {
-  import type { EventBusEvents } from "sharedUtils/eventTypes";
+declare module "shared-utils/eventBus" {
+  import type { EventBusEvents } from "shared-utils/eventTypes";
 
   export const eventBus: {
     emit<K extends keyof EventBusEvents>(
@@ -44,12 +43,13 @@ declare module "sharedUtils/eventBus" {
       handler: (payload: EventBusEvents[K]) => void
     ): void;
     clear<K extends keyof EventBusEvents>(type?: K): void;
+    getHandlers(): Map<unknown, unknown>;
   };
 
   export type { EventBusEvents };
 }
 
-declare module "sharedUtils/eventTypes" {
+declare module "shared-utils/eventTypes" {
   export interface UserLoginEvent {
     userId: string;
     email: string;
@@ -100,20 +100,34 @@ declare module "sharedUtils/eventTypes" {
   };
 }
 
-declare module "sharedUtils/types" {
-  // export * from "sharedUtils/src/types/index";
-  // // We need to properly type this based on what we exposed.
-  // // Since we exposed it via module federation, we should declare it:
-  // import { AppRoutes } from "sharedUtils/src/types/routes";
-  // import {
-  //   NavigationMethods,
-  //   NavigationEvent,
-  //   NAVIGATION_EVENTS,
-  // } from "sharedUtils/src/types/navigation";
+declare module "shared-utils/types" {
+  export const ROUTES: {
+    HOME: string;
+    REMOTE1: {
+      ROOT: string;
+      PRODUCTS: string;
+      PRODUCT_DETAIL: (id: string) => string;
+    };
+    REMOTE2: {
+      ROOT: string;
+      CART: string;
+      CHECKOUT: string;
+    };
+  };
 
-  // export const ROUTES: AppRoutes;
-  // export type { NavigationEvent, NavigationMethods };
-  // export const NAVIGATION_EVENTS: typeof NAVIGATION_EVENTS;
-  const value: unknown;
-  export default value;
+  export const NAVIGATION_EVENTS: {
+    NAVIGATE: string;
+  };
+
+  export type NavigationEvent = {
+    type: string;
+    payload: {
+      path: string;
+      state?: unknown;
+    };
+  };
+
+  export interface NavigationMethods {
+    navigateTo: (path: string, state?: unknown) => void;
+  }
 }

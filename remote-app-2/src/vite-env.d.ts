@@ -1,12 +1,11 @@
 /// <reference types="vite/client" />
 
-declare module "sharedUtils/utils" {
-  const utils: unknown;
-  export default utils;
+declare module "shared-utils/utils" {
+  export function getUserMessage(user?: boolean): string;
 }
 
-declare module "sharedUtils/eventBus" {
-  import type { EventBusEvents } from "sharedUtils/eventTypes";
+declare module "shared-utils/eventBus" {
+  import type { EventBusEvents } from "shared-utils/eventTypes";
 
   export const eventBus: {
     emit<K extends keyof EventBusEvents>(
@@ -31,7 +30,7 @@ declare module "sharedUtils/eventBus" {
   export type { EventBusEvents };
 }
 
-declare module "sharedUtils/eventTypes" {
+declare module "shared-utils/eventTypes" {
   export interface UserLogoutEvent {
     userId: string;
     timestamp: number;

@@ -9,12 +9,12 @@ interface RootState {
 }
 
 const loadSharedUtils = async () => {
-  const utils = await import("sharedUtils/utils");
+  const utils = await import("shared-utils/utils");
   return utils;
 };
 
 const loadEventBus = async () => {
-  const { eventBus } = await import("sharedUtils/eventBus");
+  const { eventBus } = await import("shared-utils/eventBus");
   return eventBus;
 };
 
@@ -27,7 +27,7 @@ function Cart() {
     let unsubscribe: (() => void) | undefined;
 
     loadEventBus().then((eventBus) => {
-      unsubscribe = eventBus.on("user:logout", (payload: unknown) => {
+      unsubscribe = eventBus.on("user:logout", (payload) => {
         console.log("🚪 [Remote-2 Cart] User logged out:", payload);
         setIsLoggedOut(true);
 

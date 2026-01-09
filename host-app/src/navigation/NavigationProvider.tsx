@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import type { ReactNode } from "react";
-import { useNavigate, useLocation } from "react-router";
+import { useNavigate, useLocation } from "react-router-dom";
 import { NavigationContext } from "./NavigationContext";
 import type { NavigationEvent, NavigationMethods } from "./NavigationContext";
 
-// const loadTypes = import("sharedUtils/types");
-const loadEventBus = import("sharedUtils/eventBus");
+// const loadTypes = import("shared-utils/types");
+const loadEventBus = import("shared-utils/eventBus");
 
 export const NavigationProvider = ({ children }: { children: ReactNode }) => {
   const navigate = useNavigate();
