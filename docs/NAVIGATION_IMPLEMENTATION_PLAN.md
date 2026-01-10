@@ -97,8 +97,8 @@ A new package to share type-safe route definitions across all apps.
 Add React Router dependencies:
 
 ```json
-"react-router-dom": "^7.1.1",
-"@types/react-router-dom": "^5.3.3"
+"react-router": "^7.1.1",
+"@types/react-router": "^5.3.3"
 ```
 
 #### [NEW] [Router.tsx](file:///d:/Projects/mirco-frontend/host-app/src/Router.tsx)
@@ -152,7 +152,7 @@ Add routing dependencies (as devDependencies since host provides them):
 
 ```json
 "devDependencies": {
-  "react-router-dom": "^7.1.1"
+  "react-router": "^7.1.1"
 }
 ```
 

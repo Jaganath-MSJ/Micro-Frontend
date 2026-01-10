@@ -46,9 +46,9 @@ export default defineConfig({
           singleton: true,
           requiredVersion: dependencies["@reduxjs/toolkit"],
         },
-        "react-router-dom": {
+        "react-router": {
           singleton: true,
-          requiredVersion: dependencies["react-router-dom"],
+          requiredVersion: dependencies["react-router"],
         },
       },
       // hostInitInjectLocation: "html",

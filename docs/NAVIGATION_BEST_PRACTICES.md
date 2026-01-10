@@ -177,7 +177,7 @@ Share the router instance from host to remotes via context.
 
 ```typescript
 // host-app
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router";
 
 export function Host() {
   return (
