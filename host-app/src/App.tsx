@@ -113,7 +113,7 @@ function App() {
         transition: "all 0.3s ease",
       }}
     >
-      <Navbar />
+      <Navbar theme={theme} />
       <h1>🏠 Host Application</h1>
       <p>
         Current Theme: <strong>{theme}</strong>
