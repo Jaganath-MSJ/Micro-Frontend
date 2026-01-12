@@ -4,13 +4,13 @@ Welcome to the Micro-Frontend Project! This repository demonstrates a scalable f
 
 ## 🚀 Quick Links
 
-- **[Getting Started](./GETTING_STARTED.md)**: Setup and installation instructions.
-- **[Project Structure](./PROJECT_STRUCTURE.md)**: Overview of the monorepo layout.
-- **[Architecture](./ARCHITECTURE.md)**: Deep dive into how the micro-frontends work together.
-- **[Technologies](./TECHNOLOGIES.md)**: The tech stack used in this project.
-- **[Tutorial](./TUTORIAL.md)**: How to add and expose new components.
-- **[Troubleshooting](./TROUBLESHOOTING.md)**: Solutions to common problems.
-- **[Learning Goals](./LEARNING_GOALS.md)**: What you can learn from this codebase.
+- **[Getting Started](./docs/GETTING_STARTED.md)**: Setup and installation instructions.
+- **[Project Structure](./docs/PROJECT_STRUCTURE.md)**: Overview of the monorepo layout.
+- **[Architecture](./docs/ARCHITECTURE.md)**: Deep dive into how the micro-frontends work together.
+- **[Technologies](./docs/TECHNOLOGIES.md)**: The tech stack used in this project.
+- **[Tutorial](./docs/TUTORIAL.md)**: How to add and expose new components.
+- **[Troubleshooting](./docs/TROUBLESHOOTING.md)**: Solutions to common problems.
+- **[Learning Goals](./docs/LEARNING_GOALS.md)**: What you can learn from this codebase.
 
 ## 📦 Overview
 
