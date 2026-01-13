@@ -1,7 +1,16 @@
 import { Link, useNavigate } from "react-router";
 
-const Navbar = () => {
+interface NavbarProps {
+  theme: "light" | "dark";
+}
+
+const Navbar = ({ theme }: NavbarProps) => {
   const navigate = useNavigate();
+
+  const isDark = theme === "dark";
+  const bgColor = isDark ? "#333" : "#fff";
+  const textColor = isDark ? "#fff" : "#333";
+  const buttonBg = isDark ? "#555" : "#e0e0e0";
 
   return (
     <nav
@@ -9,9 +18,11 @@ const Navbar = () => {
         display: "flex",
         alignItems: "center",
         padding: "1rem",
-        backgroundColor: "#333",
-        color: "#fff",
+        backgroundColor: bgColor,
+        color: textColor,
         gap: "20px",
+        borderBottom: `1px solid ${isDark ? "#444" : "#ddd"}`,
+        boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
       }}
     >
       <button
@@ -19,8 +30,8 @@ const Navbar = () => {
         style={{
           padding: "5px 10px",
           cursor: "pointer",
-          backgroundColor: "#555",
-          color: "white",
+          backgroundColor: buttonBg,
+          color: textColor,
           border: "none",
           borderRadius: "4px",
         }}
@@ -29,15 +40,18 @@ const Navbar = () => {
       </button>
 
       <div style={{ display: "flex", gap: "15px" }}>
-        <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+        <Link to="/" style={{ color: textColor, textDecoration: "none" }}>
           Home
         </Link>
-        <Link to="/remote1" style={{ color: "white", textDecoration: "none" }}>
+        <Link
+          to="/remote1"
+          style={{ color: textColor, textDecoration: "none" }}
+        >
           Remote 1 (Button)
         </Link>
         <Link
           to="/remote2/cart"
-          style={{ color: "white", textDecoration: "none" }}
+          style={{ color: textColor, textDecoration: "none" }}
         >
           Remote 2 (Cart)
         </Link>
