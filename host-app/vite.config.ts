@@ -8,10 +8,6 @@ export default defineConfig({
     react(),
     federation({
       name: "host-app",
-      exposes: {
-        "./store": "./src/store/store",
-        "./userSlice": "./src/store/userSlice",
-      },
       remotes: {
         "remote-app-1": {
           type: "module",
